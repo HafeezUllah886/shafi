@@ -1,25 +1,2 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Models\accounts;
-use App\Models\expenses;
-use App\Models\products;
-use App\Models\purchase_details;
-use App\Models\sale_details;
-use App\Models\sales;
-use Carbon\Carbon;
-use Illuminate\Container\Attributes\DB;
-use Illuminate\Http\Request;
-
-class dashboardController extends Controller
-{
-    public function index()
-    {
-        $products = products::with('category')->select('id', 'code', 'name', 'alert', 'catID')->get();
-        foreach($products as $product){
-            $product->stock = getStock($product->id);
-        }
-        return view('dashboard.index', compact('products'));
-    }
-}
+ namespace App\Http\Controllers; use App\Models\accounts; use App\Models\expenses; use App\Models\products; use App\Models\purchase_details; use App\Models\sale_details; use App\Models\sales; use Carbon\Carbon; use Illuminate\Container\Attributes\DB; use Illuminate\Http\Request; class dashboardController extends Controller { public function index() { $products = products::with("\143\141\x74\x65\x67\x6f\162\x79")->select("\x69\x64", "\x63\x6f\144\145", "\156\141\155\x65", "\141\154\145\x72\x74", "\x63\x61\x74\x49\104")->get(); foreach ($products as $product) { $product->stock = getStock($product->id); } return view("\144\x61\x73\x68\x62\157\141\162\x64\56\x69\156\144\145\170", compact("\160\162\157\144\165\x63\x74\x73")); } }

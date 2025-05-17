@@ -1,21 +1,2 @@
 <?php
-
-use App\Http\Controllers\SalePaymentsController;
-use App\Http\Controllers\SalesController;
-use App\Http\Middleware\confirmPassword;
-use Illuminate\Support\Facades\Route;
-
-Route::middleware('auth')->group(function () {
-
-    Route::resource('sale', SalesController::class);
-
-    Route::get("sales/getproduct/{id}", [SalesController::class, 'getSignleProduct']);
-    Route::get("sales/delete/{id}", [SalesController::class, 'destroy'])->name('sale.delete')->middleware(confirmPassword::class);
-    Route::get("sales/pdf/{id}", [SalesController::class, 'pdf'])->name('sale.pdf');
-
-    Route::get('salepayment/{id}', [SalePaymentsController::class, 'index'])->name('salePayment.index');
-    Route::get('salepayment/show/{id}', [SalePaymentsController::class, 'show'])->name('salePayment.show');
-    Route::get('salepayment/delete/{id}/{ref}', [SalePaymentsController::class, 'destroy'])->name('salePayment.delete')->middleware(confirmPassword::class);
-    Route::resource('sale_payment', SalePaymentsController::class);
-
-});
+ use App\Http\Controllers\SalePaymentsController; use App\Http\Controllers\SalesController; use App\Http\Middleware\confirmPassword; use Illuminate\Support\Facades\Route; Route::middleware("\141\165\164\x68")->group(function () { Route::resource("\163\141\x6c\x65", SalesController::class); Route::get("\x73\141\154\145\163\57\147\x65\164\160\162\x6f\144\165\143\164\x2f\173\151\144\x7d", array(SalesController::class, "\147\x65\164\x53\x69\147\156\x6c\x65\120\162\157\x64\165\x63\164")); Route::get("\163\x61\x6c\145\x73\57\144\145\154\x65\164\x65\57\x7b\x69\144\175", array(SalesController::class, "\144\145\163\x74\162\157\x79"))->name("\163\141\154\x65\56\x64\x65\x6c\145\x74\x65")->middleware(confirmPassword::class); Route::get("\x73\x61\154\145\163\57\x70\144\146\x2f\x7b\151\144\175", array(SalesController::class, "\x70\144\146"))->name("\163\x61\x6c\x65\56\160\144\x66"); Route::get("\163\141\154\145\160\141\171\x6d\145\x6e\164\57\x7b\151\x64\x7d", array(SalePaymentsController::class, "\151\x6e\x64\145\170"))->name("\x73\141\x6c\145\x50\141\x79\155\x65\x6e\x74\x2e\151\156\x64\145\170"); Route::get("\163\x61\x6c\x65\160\141\x79\155\145\x6e\x74\57\163\x68\157\x77\x2f\173\151\144\x7d", array(SalePaymentsController::class, "\163\150\157\167"))->name("\x73\x61\154\x65\120\141\171\x6d\x65\156\x74\56\163\150\157\x77"); Route::get("\x73\141\x6c\x65\x70\141\x79\155\x65\x6e\x74\57\x64\x65\154\145\164\x65\x2f\x7b\x69\x64\x7d\57\173\x72\145\146\x7d", array(SalePaymentsController::class, "\144\x65\x73\x74\x72\x6f\171"))->name("\x73\141\154\x65\120\x61\171\x6d\x65\156\164\56\x64\145\x6c\x65\x74\x65")->middleware(confirmPassword::class); Route::resource("\x73\x61\x6c\x65\137\x70\x61\171\155\x65\x6e\164", SalePaymentsController::class); });

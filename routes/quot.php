@@ -1,14 +1,2 @@
 <?php
-
-use App\Http\Controllers\QuotationController;
-use App\Http\Middleware\confirmPassword;
-use Illuminate\Support\Facades\Route;
-
-Route::middleware('auth')->group(function () {
-
-    Route::resource('quotation', QuotationController::class);
-
-    Route::get("quotation/delete/{id}", [QuotationController::class, 'destroy'])->name('quotation.delete')->middleware(confirmPassword::class);
-    Route::get("quotation/pdf/{id}", [QuotationController::class, 'pdf']);
-
-});
+ use App\Http\Controllers\QuotationController; use App\Http\Middleware\confirmPassword; use Illuminate\Support\Facades\Route; Route::middleware("\x61\x75\164\150")->group(function () { Route::resource("\x71\x75\x6f\x74\141\x74\151\157\x6e", QuotationController::class); Route::get("\x71\165\157\x74\141\x74\151\x6f\x6e\57\144\145\x6c\145\x74\x65\57\173\151\x64\x7d", array(QuotationController::class, "\x64\145\x73\x74\162\157\171"))->name("\x71\x75\x6f\x74\x61\x74\151\x6f\156\x2e\144\x65\x6c\145\164\145")->middleware(confirmPassword::class); Route::get("\x71\165\x6f\164\141\x74\151\x6f\156\57\160\x64\146\x2f\x7b\151\144\x7d", array(QuotationController::class, "\x70\144\x66")); });

@@ -1,14 +1,2 @@
 <?php
-
-use App\Http\Controllers\StockController;
-use Illuminate\Support\Facades\Route;
-
-Route::middleware('auth')->group(function () {
-
-
-
-    Route::get('products/stock/{id}/{warehouse}/{from}/{to}', [StockController::class, 'show'])->name('stockDetails');
-    Route::resource('product_stock', StockController::class);
-
-});
-
+ use App\Http\Controllers\StockController; use Illuminate\Support\Facades\Route; Route::middleware("\x61\x75\x74\150")->group(function () { Route::get("\x70\162\x6f\x64\x75\143\164\x73\57\163\x74\157\143\x6b\x2f\x7b\151\144\175\57\173\x77\141\162\145\150\x6f\x75\163\x65\175\x2f\173\x66\162\x6f\155\x7d\57\173\x74\157\x7d", array(StockController::class, "\163\x68\x6f\x77"))->name("\x73\164\x6f\143\x6b\104\145\x74\141\151\x6c\163"); Route::resource("\x70\162\157\x64\165\x63\164\137\x73\x74\x6f\x63\153", StockController::class); });

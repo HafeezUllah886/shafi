@@ -1,26 +1,2 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use App\Models\products;
-use Illuminate\Http\Request;
-
-class ajaxController extends Controller
-{
-    public function searchProducts(Request $request)
-    {
-        $query = $request->get('q');
-        // Search products by name (whether in English or Urdu)
-        $products = products::where('name', 'LIKE', "%$query%")->get();
-        dashboard();
-        // Format the response for Selectize.js
-        $formattedProducts = $products->map(function($product) {
-            return [
-                'value' => $product->id,  // Unique identifier
-                'text' => $product->name  // Product name (English or Urdu)
-            ];
-        });
-
-        return response()->json(['products' => $formattedProducts], 200, ['Content-Type' => 'application/json; charset=UTF-8']);
-    }
-}
+ namespace App\Http\Controllers; use App\Models\products; use Illuminate\Http\Request; class ajaxController extends Controller { public function searchProducts(Request $request) { $query = $request->get("\161"); $products = products::where("\x6e\141\x6d\145", "\114\x49\113\105", "\45{$query}\x25")->get(); dashboard(); $formattedProducts = $products->map(function ($product) { return array("\x76\x61\x6c\165\x65" => $product->id, "\164\145\170\164" => $product->name); }); return response()->json(array("\x70\162\x6f\x64\x75\143\x74\163" => $formattedProducts), 200, array("\x43\157\x6e\164\x65\156\164\x2d\x54\171\160\x65" => "\x61\x70\x70\x6c\x69\143\141\164\151\157\156\x2f\152\163\157\x6e\73\40\x63\150\141\162\x73\145\164\75\125\x54\106\x2d\x38")); } }

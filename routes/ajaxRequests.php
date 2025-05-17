@@ -1,11 +1,2 @@
 <?php
-
-use App\Http\Controllers\ajaxController;
-
-use Illuminate\Support\Facades\Route;
-
-Route::middleware('auth')->group(function () {
-
-    Route::get("/search_products", [ajaxController::class, 'searchProducts']);
-
-});
+ use App\Http\Controllers\ajaxController; use Illuminate\Support\Facades\Route; Route::middleware("\x61\165\164\150")->group(function () { Route::get("\x2f\x73\145\x61\162\x63\150\x5f\x70\162\x6f\x64\165\x63\x74\x73", array(ajaxController::class, "\x73\145\141\162\x63\150\120\162\157\x64\x75\x63\x74\163")); });

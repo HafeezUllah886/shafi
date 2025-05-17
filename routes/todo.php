@@ -1,14 +1,2 @@
 <?php
-
-
-use App\Http\Controllers\TodoController;
-use App\Http\Middleware\confirmPassword;
-use Illuminate\Support\Facades\Route;
-
-Route::middleware('auth')->group(function () {
-
-    Route::resource('/todos', TodoController::class);
-    Route::get('/todo/delete/{id}', [TodoController::class, 'delete'])->name('todo.delete')->middleware(confirmPassword::class);
-    Route::get('/todo/status/{id}', [TodoController::class, 'status'])->name('todo.status');
-
-});
+ use App\Http\Controllers\TodoController; use App\Http\Middleware\confirmPassword; use Illuminate\Support\Facades\Route; Route::middleware("\x61\x75\x74\150")->group(function () { Route::resource("\x2f\x74\x6f\144\x6f\163", TodoController::class); Route::get("\x2f\x74\x6f\x64\157\57\x64\145\154\x65\x74\145\57\x7b\151\144\175", array(TodoController::class, "\x64\145\154\x65\x74\145"))->name("\164\157\144\x6f\x2e\x64\x65\x6c\x65\164\x65")->middleware(confirmPassword::class); Route::get("\57\x74\157\x64\157\x2f\x73\x74\x61\164\x75\163\57\x7b\151\144\x7d", array(TodoController::class, "\163\164\141\x74\165\163"))->name("\164\x6f\x64\x6f\56\163\x74\141\x74\x75\x73"); });

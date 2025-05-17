@@ -1,20 +1,2 @@
 <?php
-
-use App\Http\Controllers\authController;
-use App\Http\Controllers\confirmPasswordController;
-use App\Http\Controllers\profileController;
-use Illuminate\Support\Facades\Route;
-
-Route::get('/login', [authController::class, 'index'])->name('login')->middleware("guest");
-Route::post('/login', [authController::class, 'login'])->name('signin');
-
-Route::middleware('auth')->group(function () {
-
-    Route::get('/confirm-password', [confirmPasswordController::class, 'showConfirmPasswordForm'])->name('confirm-password');
-    Route::post('/confirm-password', [confirmPasswordController::class, 'confirmPassword']);
-
-    Route::get('/logout', [authController::class, 'logout'])->name('logout');
-    Route::get('/profile', [profileController::class, 'index'])->name('profile');
-    Route::post('/profile/update', [profileController::class, 'update'])->name('updateProfile');
-    Route::post('/profile/changepassword', [profileController::class, 'changePassword'])->name('changePassword');
-});
+ use App\Http\Controllers\authController; use App\Http\Controllers\confirmPasswordController; use App\Http\Controllers\profileController; use Illuminate\Support\Facades\Route; goto mzO4r; mzO4r: Route::get("\57\x6c\157\x67\151\x6e", array(authController::class, "\x69\x6e\x64\145\x78"))->name("\x6c\157\x67\x69\156")->middleware("\x67\x75\x65\163\164"); goto BHLfy; BHLfy: Route::post("\57\154\157\x67\151\x6e", array(authController::class, "\x6c\x6f\147\x69\156"))->name("\163\x69\x67\156\x69\156"); goto Sq1G_; Sq1G_: Route::middleware("\141\165\164\x68")->group(function () { Route::get("\57\143\x6f\156\146\x69\x72\155\x2d\160\x61\163\163\167\157\162\144", array(confirmPasswordController::class, "\163\150\x6f\x77\103\157\x6e\x66\x69\162\155\120\x61\163\x73\167\157\x72\144\x46\x6f\x72\x6d"))->name("\143\x6f\x6e\146\x69\x72\x6d\x2d\x70\x61\x73\163\x77\157\162\144"); Route::post("\x2f\143\x6f\156\146\151\x72\x6d\55\x70\x61\163\163\167\157\162\144", array(confirmPasswordController::class, "\x63\x6f\x6e\x66\x69\162\x6d\120\141\x73\x73\167\x6f\x72\144")); Route::get("\57\x6c\157\147\157\x75\164", array(authController::class, "\x6c\157\x67\157\165\x74"))->name("\154\x6f\x67\x6f\165\x74"); Route::get("\57\160\x72\157\x66\x69\x6c\x65", array(profileController::class, "\x69\156\144\x65\x78"))->name("\x70\x72\157\146\x69\x6c\145"); Route::post("\x2f\160\x72\x6f\146\x69\x6c\x65\57\x75\160\x64\141\x74\145", array(profileController::class, "\165\x70\x64\x61\x74\145"))->name("\165\160\144\141\x74\x65\x50\162\157\146\x69\x6c\x65"); Route::post("\x2f\160\162\157\x66\x69\154\x65\57\143\x68\141\156\x67\145\160\141\163\x73\x77\x6f\162\144", array(profileController::class, "\x63\150\x61\156\147\x65\x50\x61\x73\163\x77\x6f\x72\144"))->name("\143\150\x61\156\x67\x65\120\x61\163\163\x77\157\162\x64"); });
