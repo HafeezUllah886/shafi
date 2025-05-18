@@ -185,10 +185,10 @@
                                 <a href="{{ route('reportPurchase') }}" class="nav-link"
                                     data-key="t-basic-elements">Product Stock-In Report</a>
                             </li>
-                            <li class="nav-item">
+                           {{--  <li class="nav-item">
                                 <a href="{{ route('reportSale') }}" class="nav-link"
                                     data-key="t-basic-elements">Product Stock-Out Report</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a href="{{ route('reportWarehouse') }}" class="nav-link"
                                     data-key="t-basic-elements">Warehouse Report</a>

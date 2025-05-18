@@ -80,7 +80,25 @@
                                                 <td>{{ $key+1 }}</td>
                                                 <td>{{ $trans->refID }}</td>
                                                 <td>{{ date('d M Y', strtotime($trans->date)) }}</td>
-                                                <td class="text-start">{!! $trans->notes !!}</td>
+                                                <td class="text-start">{!! $trans->notes !!} <br>
+                                                    @php
+                                                    if ($trans->type == "purchase")
+                                                        {
+                                                            $products = App\Models\purchase_details::with('product')->where('refID', $trans->refID)->get();
+                                                            foreach ($products as $product) {
+                                                                echo $product->product->name . " ($product->qty) - ($product->pprice)<br>";
+                                                            }
+                                                        }
+
+                                                        if ($trans->type == "sale")
+                                                        {
+                                                            $products = App\Models\sale_details::with('product')->where('refID', $trans->refID)->get();
+                                                            foreach ($products as $product) {
+                                                                echo $product->product->name . " ($product->qty) - ($product->price) <br>";
+                                                            }
+                                                        }
+                                                @endphp
+                                                </td>
                                                 <td class="text-end text-success">{{ number_format($trans->cr) }}</td>
                                                 <td class="text-end text-danger">{{ number_format($trans->db) }}</td>
                                                 <td class="text-end">{{ number_format($balance) }}</td>

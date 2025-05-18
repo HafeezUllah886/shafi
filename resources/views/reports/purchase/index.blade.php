@@ -18,7 +18,7 @@
                     <div class="form-group mt-2">
                         <label for="vendor">Company</label>
                                 <select name="vendor" id="vendor" class="form-control">
-                                  {{--   <option value="All">All Vendors</option> --}}
+                                  <option value="All">All Vendors</option> 
                                    @foreach ($vendors as $vendor)
                                         <option value="{{ $vendor->id }}">{{ $vendor->title }}</option>
                                     @endforeach

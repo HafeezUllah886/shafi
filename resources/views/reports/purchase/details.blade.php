@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-lg-3 col-4">
                                         <p class="text-muted mb-2 text-uppercase fw-semibold">Company</p>
-                                        <h5 class="fs-14 mb-0">{{ $vendor->title }}</h5>
+                                        <h5 class="fs-14 mb-0">{{ $vendor_title }}</h5>
                                     </div>
                                     <!--end col-->
                                     <!--end col-->
