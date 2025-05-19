@@ -109,6 +109,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('stockTransfer.index') }}" class="nav-link" data-key="t-chat">Stock Transfer</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('stockAdjustments.index') }}" class="nav-link" data-key="t-chat">Stock Adjustment</a>
+                            </li>
                         </ul>
                     </div>
                 </li>

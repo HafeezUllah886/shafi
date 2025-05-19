@@ -61,6 +61,7 @@
                                                 <th scope="col">Average Price</th>
                                                 <th scope="col">Quantity</th>
                                                 <th scope="col">Current Stock</th>
+                                                <th scope="col">Stock Value</th>
                                             </tr>
                                         </thead>
                                         <tbody >
@@ -73,6 +74,7 @@
                                                 <td class="text-end">{{ $product->avg_pprice }}</td>
                                                 <td class="text-end">{{ $product->total_qty }}</td>
                                                 <td class="text-end">{{ $product->product_stock }}</td>
+                                                <td class="text-end">{{ number_format(productStockValue($product->productID),2) }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>

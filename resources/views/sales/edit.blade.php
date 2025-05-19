@@ -60,6 +60,7 @@
                                                     <option value="{{$warehouse->id}}" @selected($warehouse->id == $product->warehouseID)>{{$warehouse->name}}</option>
                                                 @endforeach
                                             </select></td>
+                                            <td class="no-padding"><input type="number" name="stock[]" required step="any" value="{{$product->stock}}" readonly min="0" class="form-control text-center no-padding" id="stock_{{$id}}"></td>
                                             <td class="no-padding"><input type="number" name="qty[]" required step="any" value="{{$product->qty}}" min="0" class="form-control text-center no-padding" id="qty_{{$id}}"></td>
                                            
                                             <td class="no-padding"> <span class="btn btn-sm btn-danger" onclick="deleteRow({{$id}})">X</span> </td>
@@ -80,7 +81,7 @@
                             </div>
                             <div class="col-3 mt-2">
                                 <div class="form-group">
-                                    <label for="customer">Salesman</label>
+                                    <label for="customer">Chief</label>
                                     <select name="customerID" id="customerID" class="selectize1">
                                         @foreach ($customers as $customer)
                                             <option value="{{ $customer->id }}" @selected($customer->id == $sale->customerID)>{{ $customer->title }}</option>
