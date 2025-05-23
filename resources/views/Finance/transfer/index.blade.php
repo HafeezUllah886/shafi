@@ -66,8 +66,8 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group mt-2">
-                            <label for="from">From</label>
-                            <select name="from" id="from" required class="selectize">
+                            <label for="from">From (Balance: <span id="accountBalance">0</span>)</label>
+                            <select name="from" id="fromID" onchange="getBalance()" required class="selectize">
                                 <option value=""></option>
                                 @foreach ($accounts as $account)
                                     <option value="{{ $account->id }}">{{ $account->title }}</option>
@@ -75,8 +75,8 @@
                             </select>
                         </div>
                         <div class="form-group mt-2">
-                            <label for="to">To</label>
-                            <select name="to" id="to" required class="selectize">
+                            <label for="to">To (Balance: <span id="accountBalance1">0</span>)</label>
+                            <select name="to" id="toID" onchange="getBalance1()" required class="selectize">
                                 <option value=""></option>
                                 @foreach ($accounts as $account)
                                     <option value="{{ $account->id }}">{{ $account->title }}</option>
@@ -133,5 +133,55 @@
     <script src="{{ asset('assets/libs/selectize/selectize.min.js') }}"></script>
     <script>
         $(".selectize").selectize();
+
+        function getBalance()
+        {
+            var id = $("#fromID").find(":selected").val();
+            $.ajax({
+                url: "{{ url('/accountbalance/') }}/" + id,
+                method: 'GET',
+                success: function(response) {
+                    $("#accountBalance").html(response.data);
+                    if(response.data > 0)
+                    {
+                        $("#accountBalance").addClass('text-success');
+                        $("#accountBalance").removeClass('text-danger');
+                    }
+                    else
+                    {
+                        $("#accountBalance").addClass('text-danger');
+                        $("#accountBalance").removeClass('text-success');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
+
+        function getBalance1()
+        {
+            var id = $("#toID").find(":selected").val();
+            $.ajax({
+                url: "{{ url('/accountbalance/') }}/" + id,
+                method: 'GET',
+                success: function(response) {
+                    $("#accountBalance1").html(response.data);
+                    if(response.data > 0)
+                    {
+                        $("#accountBalance1").addClass('text-success');
+                        $("#accountBalance1").removeClass('text-danger');
+                    }
+                    else
+                    {
+                        $("#accountBalance1").addClass('text-danger');
+                        $("#accountBalance1").removeClass('text-success');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
     </script>
 @endsection
